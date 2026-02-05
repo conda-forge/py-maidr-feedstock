@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.10.0"
+  version: "1.11.0"
   python_check_max: "3.14"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-  sha256: b441b6b11813920aca4e9ae3910f68c58c23565f4235c680c59119d619809b9d
+  sha256: 67a277429d7a550b812b03c91cd5f7f56f15423eb4b74b63345000c714af7dd3
 
 build:
   number: 0
