@@ -119,7 +119,7 @@ outputs:
 about:
   homepage: https://pypi.org/project/maidr
   summary: Multimodal Access and Interactive Data Representations
-  license: GPL-3.0-only
+  license: GPL-3.0-or-later
   license_file: LICENSE
   repository: https://github.com/xability/py-maidr
   documentation: https://py.maidr.ai
