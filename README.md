@@ -9,7 +9,7 @@ About py-maidr
 
 Home: https://pypi.org/project/maidr
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: Multimodal Access and Interactive Data Representations
 
@@ -22,7 +22,7 @@ About py-maidr-with-all
 
 Home: https://pypi.org/project/maidr
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: Multimodal Access and Interactive Data Representations (with all [extras])
 
@@ -35,7 +35,7 @@ About py-maidr-with-jupyter
 
 Home: https://pypi.org/project/maidr
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: Multimodal Access and Interactive Data Representations (with [jupyter])
 
@@ -48,7 +48,7 @@ About py-maidr-with-visualization
 
 Home: https://pypi.org/project/maidr
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: Multimodal Access and Interactive Data Representations (with [visualization])
 
