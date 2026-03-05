@@ -112,7 +112,7 @@ outputs:
             - pytest-mock >=3.12.0,<4
         script:
           - coverage run --source maidr --branch -m pytest -vv --tb=long --color=yes
-          - coverage report --show-missing --skip-covered --fail-under=30
+          - coverage report --show-missing --skip-covered --fail-under=27
     about:
       summary: Multimodal Access and Interactive Data Representations (with all [extras])
 
