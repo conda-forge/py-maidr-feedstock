@@ -89,10 +89,27 @@ outputs:
       summary: Multimodal Access and Interactive Data Representations (with [jupyter])
 
   - package:
+      name: py-maidr-with-plotly
+    requirements:
+      run:
+        - ${{ pin_subpackage("py-maidr", exact=True) }}
+        - plotly >=5.0
+    tests:
+      - python:
+          imports: maidr
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: Multimodal Access and Interactive Data Representations (with [plotly])
+
+  - package:
       name: py-maidr-with-all
     requirements:
       run:
         - ${{ pin_subpackage("py-maidr-with-jupyter", exact=True) }}
+        - ${{ pin_subpackage("py-maidr-with-plotly", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-visualization", exact=True) }}
         - ${{ pin_subpackage("py-maidr", exact=True) }}
     tests:
