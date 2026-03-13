@@ -43,6 +43,19 @@ Development: https://github.com/xability/py-maidr
 
 Documentation: https://py.maidr.ai/
 
+About py-maidr-with-plotly
+--------------------------
+
+Home: https://pypi.org/project/maidr
+
+Package license: GPL-3.0-or-later
+
+Summary: Multimodal Access and Interactive Data Representations (with [plotly])
+
+Development: https://github.com/xability/py-maidr
+
+Documentation: https://py.maidr.ai/
+
 About py-maidr-with-visualization
 ---------------------------------
 
@@ -77,6 +90,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr-green.svg)](https://anaconda.org/conda-forge/py-maidr) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr.svg)](https://anaconda.org/conda-forge/py-maidr) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr.svg)](https://anaconda.org/conda-forge/py-maidr) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr.svg)](https://anaconda.org/conda-forge/py-maidr) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--all-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-all.svg)](https://anaconda.org/conda-forge/py-maidr-with-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-all.svg)](https://anaconda.org/conda-forge/py-maidr-with-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-all.svg)](https://anaconda.org/conda-forge/py-maidr-with-all) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--jupyter-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-jupyter.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-jupyter.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-jupyter.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--plotly-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-plotly.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-plotly.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-plotly.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--visualization-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-visualization.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-visualization.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-visualization.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) |
 
 Installing py-maidr
@@ -89,16 +103,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `py-maidr, py-maidr-with-all, py-maidr-with-jupyter, py-maidr-with-visualization` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `py-maidr, py-maidr-with-all, py-maidr-with-jupyter, py-maidr-with-plotly, py-maidr-with-visualization` can be installed with `conda`:
 
 ```
-conda install py-maidr py-maidr-with-all py-maidr-with-jupyter py-maidr-with-visualization
+conda install py-maidr py-maidr-with-all py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-visualization
 ```
 
 or with `mamba`:
 
 ```
-mamba install py-maidr py-maidr-with-all py-maidr-with-jupyter py-maidr-with-visualization
+mamba install py-maidr py-maidr-with-all py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-visualization
 ```
 
 It is possible to list all of the versions of `py-maidr` available on your platform with `conda`:

@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.12.2"
+  version: "1.13.0"
   python_check_max: "3.14"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-  sha256: 62312fcc5a8d0c1479e3e365ba66ce476b921a8367dd784ff981a18bb2016ba7
+  sha256: 90f8a54cd5c250f1b69484701a09dabd9a4a2d4400fc3db193528c359d6d74de
 
 build:
   number: 0
@@ -89,10 +89,27 @@ outputs:
       summary: Multimodal Access and Interactive Data Representations (with [jupyter])
 
   - package:
+      name: py-maidr-with-plotly
+    requirements:
+      run:
+        - ${{ pin_subpackage("py-maidr", exact=True) }}
+        - plotly >=5.0
+    tests:
+      - python:
+          imports: maidr
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: Multimodal Access and Interactive Data Representations (with [plotly])
+
+  - package:
       name: py-maidr-with-all
     requirements:
       run:
         - ${{ pin_subpackage("py-maidr-with-jupyter", exact=True) }}
+        - ${{ pin_subpackage("py-maidr-with-plotly", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-visualization", exact=True) }}
         - ${{ pin_subpackage("py-maidr", exact=True) }}
     tests:
