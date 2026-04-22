@@ -10,8 +10,12 @@ recipe:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-  sha256: b50381bec0af265db0aba8f04484ac6662f9337621ca615aebd8226308f1a74e
+  - target_directory: dist
+    url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
+    sha256: b50381bec0af265db0aba8f04484ac6662f9337621ca615aebd8226308f1a74e
+  - target_directory: src
+    url: https://github.com/xability/py-maidr/archive/refs/tags/v${{ version }}.tar.gz
+    sha256: d394ee8bc355f4dccd073cd93de5b1c6f8d17ec5f39fb94fe4d9681c235ecc82
 
 build:
   number: 0
@@ -24,6 +28,7 @@ outputs:
       number: 0
       noarch: python
       script:
+        - cd dist
         - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
     requirements:
       host:
@@ -121,13 +126,14 @@ outputs:
             - ${{ python_check_max }}.*
       - files:
           source:
-            - tests/
+            - src/tests/
         requirements:
           run:
             - pytest-cov
             - pytest >=7.3.2,<8
             - pytest-mock >=3.12.0,<4
         script:
+          - cd src
           - coverage run --source maidr --branch -m pytest -vv --tb=long --color=yes
           - coverage report --show-missing --skip-covered --fail-under=27
     about:
@@ -137,7 +143,9 @@ about:
   homepage: https://pypi.org/project/maidr
   summary: Multimodal Access and Interactive Data Representations
   license: GPL-3.0-or-later
-  license_file: LICENSE
+  license_file:
+    - dist/LICENSE
+    # TODO: js licenses?
   repository: https://github.com/xability/py-maidr
   documentation: https://py.maidr.ai
 
