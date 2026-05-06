@@ -57,6 +57,24 @@ outputs:
             - ${{ python_check_max }}.*
 
   - package:
+      name: py-maidr-with-altair
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("py-maidr", exact=True) }}
+        - altair >=5.0
+    tests:
+      - python:
+          imports: maidr
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: Multimodal Access and Interactive Data Representations (with [altair])
+
+  - package:
       name: py-maidr-with-visualization
     build:
       noarch: generic
@@ -113,6 +131,7 @@ outputs:
       name: py-maidr-with-all
     requirements:
       run:
+        - ${{ pin_subpackage("py-maidr-with-altair", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-jupyter", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-plotly", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-visualization", exact=True) }}
