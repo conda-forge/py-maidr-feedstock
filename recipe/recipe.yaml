@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.17.3"
+  version: "1.18.0"
   python_check_max: "3.14"
 
 recipe:
@@ -12,10 +12,10 @@ recipe:
 source:
   - target_directory: dist
     url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-    sha256: b77d1c01b2b23f2fc3d99b7308dcc7c98bc8793179818d9f6d2c73dfe3598a0a
+    sha256: 631cdbe9b087360337d690c7c9cfc22ab6258b19cea033ce3dfc378796befcf4
   - target_directory: src
     url: https://github.com/xability/py-maidr/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 6dcb7b4fa5d2cace94f7063c8d5a055ff2240cdf76e40c16cecdd9179a85dfb8
+    sha256: 52bad2a006a26a436f533ba1cfd181d2070034b5ec23fe04921d94710bce75f0
 
 build:
   number: 0
@@ -55,6 +55,24 @@ outputs:
           python_version:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
+
+  - package:
+      name: py-maidr-with-altair
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("py-maidr", exact=True) }}
+        - altair >=5.0
+    tests:
+      - python:
+          imports: maidr
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: Multimodal Access and Interactive Data Representations (with [altair])
 
   - package:
       name: py-maidr-with-visualization
@@ -113,6 +131,7 @@ outputs:
       name: py-maidr-with-all
     requirements:
       run:
+        - ${{ pin_subpackage("py-maidr-with-altair", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-jupyter", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-plotly", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-visualization", exact=True) }}
