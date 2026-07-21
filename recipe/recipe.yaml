@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.19.0"
+  version: "1.19.1"
   python_check_max: "3.14"
 
 recipe:
@@ -12,10 +12,10 @@ recipe:
 source:
   - target_directory: dist
     url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-    sha256: 0062f38d78081f8c8f4d76b8a1f1bc3519e60772dc5575bd3e408ca7d4f1b6bd
+    sha256: 83cd62dce7a34abda27e95ad86b8f51d0dc76ee5440d266b1a3f99075807e582
   - target_directory: src
     url: https://github.com/xability/py-maidr/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 28997d9895f8c633ff623c4b052c64b9a80a00eea1b7e366e2384766020ffed0
+    sha256: c231ad3c9e9d1add9c7925872a7219443a05d20648849f3da0323ae1754db86d
 
 build:
   number: 0
