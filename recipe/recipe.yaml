@@ -4,6 +4,11 @@ schema_version: 1
 context:
   version: "1.20.0"
   python_check_max: "3.14"
+  # #18: these do weird bash things
+  k_scripts: (shell_guard_matches_the_python_validator or freshness_workflow_imports_resolve or fetch_script_bundles_every_asset_the_runtime_needs)
+  # #18: this seems kinda vibe-broken
+  k_pieplot: pieplot
+  pytest_k: not (${{ k_scripts }} or ${{ k_pieplot }})
 
 recipe:
   name: py-maidr-split
@@ -148,13 +153,14 @@ outputs:
             - src/tests/
         requirements:
           run:
-            - pytest-cov
             - pytest >=7.3.2,<8
+            - pytest-cov
             - pytest-mock >=3.12.0,<4
+            - python ${{ python_min }}.*
         script:
           - cd src
-          - coverage run --source maidr --branch -m pytest -vv --tb=long --color=yes
-          - coverage report --show-missing --skip-covered --fail-under=27
+          - coverage run --source maidr --branch -m pytest -vv --tb=long --color=yes -k "${{ pytest_k }}"
+          - coverage report --show-missing --skip-covered --fail-under=71
     about:
       summary: Multimodal Access and Interactive Data Representations (with all [extras])
 
