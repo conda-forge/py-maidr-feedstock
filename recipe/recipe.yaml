@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.20.0"
+  version: "1.21.0"
   python_check_max: "3.14"
   # #18: these do weird bash things
   k_scripts: (shell_guard_matches_the_python_validator or freshness_workflow_imports_resolve or fetch_script_bundles_every_asset_the_runtime_needs)
@@ -17,10 +17,10 @@ recipe:
 source:
   - target_directory: dist
     url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-    sha256: 82447be6edf874efb8d80f9695f3e27fee32f1b46c2a65a250a4c829211b9f8e
+    sha256: a094b85c8314b3822e50fed49a6b21dcde60f401e6abdf3c4fa4b28cbd58f3a6
   - target_directory: src
     url: https://github.com/xability/py-maidr/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: a35eea1084815e06368550f095ab7001342ddcbbc4e26c1926ca87bb02790714
+    sha256: 30f13db54ffebce63e1197ef797d3ef66afdd6ca03a8b4e42edc0c697a23983b
 
 build:
   number: 0
