@@ -69,6 +69,32 @@ Development: https://github.com/xability/py-maidr
 
 Documentation: https://py.maidr.ai/
 
+About py-maidr-with-shiny
+-------------------------
+
+Home: https://pypi.org/project/maidr
+
+Package license: GPL-3.0-or-later
+
+Summary: Multimodal Access and Interactive Data Representations (with [shiny])
+
+Development: https://github.com/xability/py-maidr
+
+Documentation: https://py.maidr.ai/
+
+About py-maidr-with-streamlit
+-----------------------------
+
+Home: https://pypi.org/project/maidr
+
+Package license: GPL-3.0-or-later
+
+Summary: Multimodal Access and Interactive Data Representations (with [streamlit])
+
+Development: https://github.com/xability/py-maidr
+
+Documentation: https://py.maidr.ai/
+
 About py-maidr-with-visualization
 ---------------------------------
 
@@ -106,6 +132,8 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--altair-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-altair) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-altair.svg)](https://anaconda.org/conda-forge/py-maidr-with-altair) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-altair.svg)](https://anaconda.org/conda-forge/py-maidr-with-altair) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-altair.svg)](https://anaconda.org/conda-forge/py-maidr-with-altair) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--jupyter-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-jupyter.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-jupyter.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-jupyter.svg)](https://anaconda.org/conda-forge/py-maidr-with-jupyter) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--plotly-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-plotly.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-plotly.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-plotly.svg)](https://anaconda.org/conda-forge/py-maidr-with-plotly) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--shiny-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-shiny) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-shiny.svg)](https://anaconda.org/conda-forge/py-maidr-with-shiny) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-shiny.svg)](https://anaconda.org/conda-forge/py-maidr-with-shiny) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-shiny.svg)](https://anaconda.org/conda-forge/py-maidr-with-shiny) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--streamlit-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-streamlit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-streamlit.svg)](https://anaconda.org/conda-forge/py-maidr-with-streamlit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-streamlit.svg)](https://anaconda.org/conda-forge/py-maidr-with-streamlit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-streamlit.svg)](https://anaconda.org/conda-forge/py-maidr-with-streamlit) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-py--maidr--with--visualization-green.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-maidr-with-visualization.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-maidr-with-visualization.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-maidr-with-visualization.svg)](https://anaconda.org/conda-forge/py-maidr-with-visualization) |
 
 Installing py-maidr
@@ -125,7 +153,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-visualization
+conda install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-shiny py-maidr-with-streamlit py-maidr-with-visualization
 ```
 
 </details>
@@ -134,7 +162,7 @@ conda install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupy
 <summary>With mamba</summary>
 
 ```
-mamba install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-visualization
+mamba install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-shiny py-maidr-with-streamlit py-maidr-with-visualization
 ```
 
 </details>
@@ -144,9 +172,9 @@ mamba install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupy
 
 ```
 # for adding to your local project
-pixi add py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-visualization
+pixi add py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-shiny py-maidr-with-streamlit py-maidr-with-visualization
 # for installing globally
-pixi global install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-visualization
+pixi global install py-maidr py-maidr-with-all py-maidr-with-altair py-maidr-with-jupyter py-maidr-with-plotly py-maidr-with-shiny py-maidr-with-streamlit py-maidr-with-visualization
 ```
 
 </details>
