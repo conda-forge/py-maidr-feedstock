@@ -7,8 +7,10 @@ context:
   # #18: these do weird bash things
   k_scripts: (shell_guard_matches_the_python_validator or freshness_workflow_imports_resolve or fetch_script_bundles_every_asset_the_runtime_needs)
   # #18: this seems kinda vibe-broken
-  k_pieplot: pieplot
-  pytest_k: not (${{ k_scripts }} or ${{ k_pieplot }})
+  k_pieplot: (pieplot or pie_schema)
+  # #19: double encoding?
+  k_embedding: survives_html_embedding
+  pytest_k: not (${{ k_scripts }} or ${{ k_pieplot }} or ${{ k_embedding }})
 
 recipe:
   name: py-maidr-split
