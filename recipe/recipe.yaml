@@ -47,11 +47,10 @@ outputs:
         - numpy >=1.26
         - python >=${{ python_min }}
         - wrapt >=1.16.0,<2
-        # undeclared, but import fails without
-        - seaborn-base
-      run_constraints:
-        - seaborn-base >=0.12
+        - seaborn-base >=0.13
         - matplotlib-base >=3.8
+        - scipy >=1.11
+      run_constraints:
         - statsmodels >=0.14.4
     tests:
       - python:
@@ -78,26 +77,6 @@ outputs:
             - ${{ python_check_max }}.*
     about:
       summary: Multimodal Access and Interactive Data Representations (with [altair])
-
-  - package:
-      name: py-maidr-with-visualization
-    build:
-      noarch: generic
-    requirements:
-      run:
-        - ${{ pin_subpackage("py-maidr", exact=True) }}
-        - flask >=3.0.0
-        - seaborn
-        - statsmodels
-    tests:
-      - python:
-          imports: maidr
-          pip_check: true
-          python_version:
-            - ${{ python_min }}.*
-            - ${{ python_check_max }}.*
-    about:
-      summary: Multimodal Access and Interactive Data Representations (with [visualization])
 
   - package:
       name: py-maidr-with-jupyter
@@ -133,12 +112,66 @@ outputs:
       summary: Multimodal Access and Interactive Data Representations (with [plotly])
 
   - package:
+      name: py-maidr-with-shiny
+    requirements:
+      run:
+        - ${{ pin_subpackage("py-maidr", exact=True) }}
+        - shiny >=1.0
+    tests:
+      - python:
+          imports: maidr
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: Multimodal Access and Interactive Data Representations (with [shiny])
+
+  - package:
+      name: py-maidr-with-streamlit
+    requirements:
+      run:
+        - ${{ pin_subpackage("py-maidr", exact=True) }}
+        - streamlit >=1.30
+    tests:
+      - python:
+          imports: maidr
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: Multimodal Access and Interactive Data Representations (with [streamlit])
+
+  - package:
+      name: py-maidr-with-visualization
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("py-maidr", exact=True) }}
+        - flask >=3.0.0
+        - seaborn-base
+        - statsmodels
+    tests:
+      - python:
+          imports: maidr
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+    about:
+      summary: Multimodal Access and Interactive Data Representations (with [visualization])
+
+  - package:
       name: py-maidr-with-all
     requirements:
       run:
         - ${{ pin_subpackage("py-maidr-with-altair", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-jupyter", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-plotly", exact=True) }}
+        - ${{ pin_subpackage("py-maidr-with-shiny", exact=True) }}
+        - ${{ pin_subpackage("py-maidr-with-streamlit", exact=True) }}
         - ${{ pin_subpackage("py-maidr-with-visualization", exact=True) }}
         - ${{ pin_subpackage("py-maidr", exact=True) }}
     tests:
@@ -153,13 +186,14 @@ outputs:
             - src/tests/
         requirements:
           run:
+            - cssselect >=1.2
             - pytest >=7.3.2,<8
             - pytest-cov
             - pytest-mock >=3.12.0,<4
             - python ${{ python_min }}.*
         script:
           - cd src
-          - coverage run --source maidr --branch -m pytest -vv --tb=long --color=yes -k "${{ pytest_k }}"
+          - coverage run --source maidr --branch -m pytest -vvv --tb=long --color=yes -k "${{ pytest_k }}"
           - coverage report --show-missing --skip-covered --fail-under=71
     about:
       summary: Multimodal Access and Interactive Data Representations (with all [extras])
