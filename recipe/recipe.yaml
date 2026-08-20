@@ -186,6 +186,7 @@ outputs:
       - files:
           source:
             - src/tests/
+            - src/pyproject.toml
         requirements:
           run:
             - cssselect >=1.2
