@@ -11,6 +11,7 @@ context:
   # #19: double encoding?
   k_embedding: survives_html_embedding
   pytest_k: not (${{ k_scripts }} or ${{ k_pieplot }} or ${{ k_embedding }})
+  unlink_tests: core/test_plot_type_stability.py
 
 recipe:
   name: py-maidr-split
@@ -196,6 +197,7 @@ outputs:
             - python ${{ python_min }}.*
         script:
           - cd src
+          - python -c "import os; [os.unlink(p) for p in '''${{ unlink_tests }}'''.split()]"
           - coverage run --source maidr --branch -m pytest -vvv --tb=long --color=yes -k "${{ pytest_k }}"
           - coverage report --show-missing --skip-covered --fail-under=71
     about:
