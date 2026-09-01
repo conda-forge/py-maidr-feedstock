@@ -11,7 +11,7 @@ context:
   # #19: double encoding?
   k_embedding: survives_html_embedding
   pytest_k: not (${{ k_scripts }} or ${{ k_pieplot }} or ${{ k_embedding }})
-  unlink_tests: core/test_plot_type_stability.py
+  unlink_tests: tests/core/test_plot_type_stability.py
 
 recipe:
   name: py-maidr-split
