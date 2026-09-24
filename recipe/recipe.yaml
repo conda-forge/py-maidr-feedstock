@@ -40,7 +40,7 @@ outputs:
       noarch: python
       script:
         - cd dist
-        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
     requirements:
       host:
         - hatchling
@@ -59,6 +59,13 @@ outputs:
       run_constraints:
         - statsmodels >=0.14.4
     tests:
+      - package_contents:
+          strict: true
+          files:
+            - etc/conda/test-files/maidr/**
+          site_packages:
+            - maidr/**
+            - maidr-${{ version }}.dist-info/**
       - python:
           imports: maidr
           pip_check: true
@@ -107,6 +114,7 @@ outputs:
       run:
         - ${{ pin_subpackage("py-maidr", exact=True) }}
         - plotly >=5.0
+        - contourpy >=1.0.1
     tests:
       - python:
           imports: maidr
@@ -158,6 +166,7 @@ outputs:
         - ${{ pin_subpackage("py-maidr", exact=True) }}
         - flask >=3.0.0
         - seaborn-base
+        # constraint above
         - statsmodels
     tests:
       - python:
@@ -198,6 +207,11 @@ outputs:
             - pytest-cov
             - pytest-mock >=3.12.0,<4
             - python ${{ python_min }}.*
+            # uses deprecated assumptions in test, using version from `uv.lock`
+            #   AttributeError: module 'plotly.graph_objects' has no attribute 'Scattermapbox'
+            - if: match(version, "1.25.0.*")
+              then:
+                - plotly 6.7.0.*
         script:
           - cd src
           - python -c "import os; [os.unlink(f'tests/{p}') for p in '''${{ unlink_tests }}'''.split()]"
