@@ -5,17 +5,6 @@ context:
   version: "1.25.0"
   summary: Multimodal Access and Interactive Data Representations
   python_check_max: "3.14"
-  # #20: parses random markdown file
-  unlink_tests: core/test_plot_type_stability.py core/test_docs_quote_the_real_warning.py
-  # #18: these do weird bash things
-  k_scripts: (shell_guard_matches_the_python_validator or freshness_workflow_imports_resolve or fetch_script_bundles_every_asset_the_runtime_needs)
-  # #18: this seems kinda vibe-broken
-  k_pieplot: (pieplot or pie_schema)
-  # #19: double encoding?
-  k_embedding: survives_html_embedding
-  # #20: not sure
-  k_20: (a_log_axis_answers_its_limits_and_its_ticks_in_different_spaces or no_new_module_stashes_maidr_state_on_an_axes)
-  pytest_k: not (${{ k_scripts }} or ${{ k_pieplot }} or ${{ k_embedding }} or ${{ k_20 }})
 
 recipe:
   name: py-maidr-split
@@ -23,7 +12,7 @@ recipe:
 
 source:
   - target_directory: dist
-    url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
+    url: https://files.pythonhosted.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
     sha256: 6389ae6f6a8993459fd3b14b10be20862fb435a1c746e0a3b2e821a3261f6d50
   - target_directory: src
     url: https://github.com/xability/py-maidr/archive/refs/tags/v${{ version }}.tar.gz
@@ -212,10 +201,7 @@ outputs:
               then:
                 - plotly 6.7.0.*
         script:
-          - cd src
-          - python -c "import os; [os.unlink(f'tests/{p}') for p in '''${{ unlink_tests }}'''.split()]"
-          - coverage run --source maidr --branch -m pytest -vvv --tb=long --color=yes -k "${{ pytest_k }}"
-          - coverage report --show-missing --skip-covered --fail-under=71
+          file: run_test.py
     about:
       summary: ${{ summary }} (with all [extras])
 
