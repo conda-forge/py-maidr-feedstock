@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.23.0"
+  version: "1.26.0"
   python_check_max: "3.14"
   # #20: parses random markdown file
   unlink_tests: core/test_plot_type_stability.py core/test_docs_quote_the_real_warning.py
@@ -23,10 +23,10 @@ recipe:
 source:
   - target_directory: dist
     url: https://pypi.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-    sha256: 9f5d61c7cc6f840fc6e2b513d05a9a2ab846e2b7314fed9247e7e7070fe8208c
+    sha256: 0c15a645ce74ba7bdbef68e3847c79143a49441098d2982ae94043cf7d1effd2
   - target_directory: src
     url: https://github.com/xability/py-maidr/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 41cd276b9f13c8cbcad18d026052eaa7a3d714bd3d3b1d572d2907a5141c238b
+    sha256: f024b64f43c0b2aaf28946fe89defc7c4e362ecdd64a88358ddc1e6362712ded
 
 build:
   number: 0
