@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 from subprocess import call
 
-COV_FAIL_UNDER = 71
+COV_FAIL_UNDER = 83
 
 UNLINK_TESTS = [
     # #20: parses random markdown file
