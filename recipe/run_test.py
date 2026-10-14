@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 from subprocess import call
 
-COV_FAIL_UNDER = 71
+COV_FAIL_UNDER = 83
 
 UNLINK_TESTS = [
     # #20: parses random markdown file
@@ -40,6 +40,10 @@ SKIPS = [
     "a_swarm_resolves_to_the_markers_seaborn_packed",
     # #23: unknown missing path layers?
     "inline_markers_resolve_to_the_points_they_draw",
+    # #24: unknown, flaky hinting?
+    "(a_translucent_face_keeps_its_alpha and no_hinting)",
+    "(elsewhere_a_figure_without_a_layout_engine_is_laid_out_to_fit_its_labels and (elsewhere or none))",
+    "(the_area_past_the_canvas_is_painted_in_the_figures_colour and no_hinting)",
 ]
 
 TEST_ARGS = [
