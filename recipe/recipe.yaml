@@ -207,7 +207,7 @@ outputs:
             - xlsxwriter >=3.0
             # uses deprecated assumptions in test, using version from `uv.lock`
             #   AttributeError: module 'plotly.graph_objects' has no attribute 'Scattermapbox'
-            - if: match(version, "1.25.0.*") or match(version, "1.26.0.*") or match(version, "1.27.0.*")
+            - if: match(version, "<=1.28.0")
               then:
                 - plotly 6.7.0.*
         script:
