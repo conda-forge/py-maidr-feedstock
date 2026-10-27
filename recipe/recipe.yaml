@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.28.0"
+  version: "1.28.1"
   summary: Multimodal Access and Interactive Data Representations
   python_check_max: "3.14"
 
@@ -13,10 +13,10 @@ recipe:
 source:
   - target_directory: dist
     url: https://files.pythonhosted.org/packages/source/m/maidr/maidr-${{ version }}.tar.gz
-    sha256: ee539364981d4ffea94b7430eb53aa3059bfc192cf9d017b5921e51563399dce
+    sha256: 1ff4c8fd45c9742b56966c03648ce65ff7387b4a277380b8690809d21fed1496
   - target_directory: src
     url: https://github.com/xability/py-maidr/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 93d8da76ed22850e18cf1029ab6549adde383cdffbf7352f9b80fbf7329882f2
+    sha256: 7ce2b5539e210a5146c93f6bcd7831dfef042d69e42c923d896015e9605815b1
 
 build:
   number: 0
@@ -207,9 +207,7 @@ outputs:
             - xlsxwriter >=3.0
             # uses deprecated assumptions in test, using version from `uv.lock`
             #   AttributeError: module 'plotly.graph_objects' has no attribute 'Scattermapbox'
-            - if: match(version, "<=1.28.0")
-              then:
-                - plotly 6.7.0.*
+            - plotly 6.7.0.*
         script:
           file: run_test.py
     about:
